@@ -32,7 +32,7 @@ const RegisterForm = () => {
   };
 
   return (
-    <div className="bg-card-cool w-80 p-4 rounded-xl">
+    <div className="bg-card w-80 max-h-80 p-4 rounded-xl">
       <h1>Register:</h1>
       <div className="flex items-center space-x-2 ">
         <Label>Staff:</Label>
@@ -69,7 +69,7 @@ const RegisterForm = () => {
         />
 
         <div className="flex justify-around gap-2 ">
-          <Button type="submit" className="mt-2 ">
+          <Button type="submit" className="mt-2" variant="cool">
             Submit
           </Button>
           <Button variant="outline" type="reset" className="mt-2">

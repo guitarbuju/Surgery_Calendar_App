@@ -6,7 +6,7 @@ import { CalendarEvent } from "@/lib/types";
 import { useEffect, useState } from "react";
 import { calendarData } from "../actions/getDataForCalendar";
 
-const page = () => {
+const Page = () => {
   const [events, setEvents] = useState<CalendarEvent[]>([]);
 
   const fetchEvents = async () => {
@@ -27,7 +27,7 @@ const page = () => {
         },
       }));
       setEvents(mapped);
-      console.log(mapped);
+      console.log('events',mapped);
     } else {
       console.error(response.error);
     }
@@ -36,7 +36,7 @@ const page = () => {
     fetchEvents();
   }, []);
   return (
-    <div className="flex flex-col  justify-center md:flex-row gap-4 mt-4">
+    <div className="flex flex-col  justify-center md:flex-row gap-4 mt-4 pb-4">
       <div className="w-full h-full sm:max-h-[730px] overflow-scroll md:w-1/2">
         <PassPortCard events={events} refreshEvents={fetchEvents} />
       </div>
@@ -47,4 +47,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

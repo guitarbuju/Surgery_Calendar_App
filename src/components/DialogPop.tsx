@@ -19,9 +19,11 @@ import { useState } from "react";
 export function DialogPop({
   id,
   onSuccess,
+  start,end
 }: {
   id: number;
   onSuccess: () => void;
+ start:string;end:string
 }) {
   const { register, handleSubmit, reset } = useForm<FormData>();
   const [open, setOpen] = useState(false);
@@ -62,15 +64,17 @@ export function DialogPop({
             <Input
               type="datetime-local"
               id="start_date"
+              defaultValue={start}
               placeholder="Start Date"
               {...register("start_date", { required: true })}
             />
           </div>
           <div className="flex  items-center gap-4 w-60">
-            <Label htmlFor="finish_date">Start Date</Label>
+            <Label htmlFor="finish_date">Finish Date</Label>
             <Input
               type="datetime-local"
               id="finish_date"
+              defaultValue={end}
               placeholder="Finish Date"
               {...register("finish_date", { required: true })}
             />

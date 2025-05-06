@@ -1,18 +1,18 @@
-import { Badge } from "@/components/ui/badge"
+
 import Link from "next/link"
 
 
 const NavBar = () => {
   return (
-    <div className="flex flex-col lg:flex lg:flex-row lg:justify-around gap-1 ">
+    <div className="flex flex-col text-xs  md:text-lg lg:flex lg:flex-row lg:justify-around  md:gap-4 sm:pr-4 border-b">
         <Link href="/">
-        <Badge variant="outline" >Home</Badge> 
+        <span className=" font-semibold hover:underline hover:text-white">Home</span> 
         </Link>
         <Link href="/calendar">
-        <Badge variant="outline" >Calendar</Badge> 
+        <span  className=" font-semibold hover:underline hover:text-white">Calendar</span> 
         </Link>
         <Link href="/insert_event">
-        <Badge variant="outline">Insert Event</Badge> 
+        <span className=" font-semibold hover:underline hover:text-white">Insert Event</span> 
         </Link>
        
     </div>

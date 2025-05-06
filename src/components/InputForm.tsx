@@ -66,10 +66,10 @@ const InputForm = () => {
           />
         </div>
         <div className="flex justify-center align-middle gap-2">
-          <Button variant="amarillo" type="submit">
+          <Button variant="cool" type="submit">
             Submit
           </Button>
-          <Button variant="default" type="reset">
+          <Button variant="outline" type="reset">
             Reset
           </Button>
         </div>

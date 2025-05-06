@@ -11,7 +11,7 @@ export const calendarData = async () => {
 FROM events
 JOIN doctors ON events.doctor_id = doctors.doctor_id
 JOIN patients ON events.patient_id = patients.patient_id
-WHERE events.start_date >= NOW()
+WHERE events.start_date >= CURRENT_DATE
 ORDER BY events.start_date ASC;
 
 `;
