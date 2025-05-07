@@ -1,61 +1,52 @@
 "use client";
-import React, { useCallback } from "react";
-import useEmblaCarousel from "embla-carousel-react";
-import { Button } from "@/components/ui/button";
-import log from "../../public/logo.png";
-import log2 from "../../public/surgery.jpg";
-import log3 from "../../public/portrait.jpg";
 
-export default function EmblaCarousel() {
-  const [emblaRef, emblaApi] = useEmblaCarousel();
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import images from "@/public/images";
+import Image from "next/image";
+import Autoplay from 'embla-carousel-autoplay';
 
-  const scrollPrev = useCallback(() => {
-    if (emblaApi) emblaApi.scrollPrev();
-  }, [emblaApi]);
+const arrayImg = Object.values(images);
 
-  const scrollNext = useCallback(() => {
-    if (emblaApi) emblaApi.scrollNext();
-  }, [emblaApi]);
-
+function CarouselSlider() {
   return (
-    <div>
-      <div className="overflow-hidden " ref={emblaRef}>
-        <div className="flex">
-          <div className="">
-            <img src={log}  />
-          </div>
-          <div className="">
-            <img src={log2}  />
-          </div>
-          <div className="">
-            <img src={log3}  />
-          </div>
-          <div className="">
-            <img src={log}  />
-          </div>
-          <div className="">
-            <img src={log2} />
-          </div>
-          <div className="">
-            <img src={log3}/>
-          </div>
-          <div className="">
-            <img src={log}  />
-          </div>
-          <div className="">
-            <img src={log2}  />
-          </div>
-          <div className="">
-            <img src={log3}  />
-          </div>
-        </div>
-      </div>
-      <Button className="embla__prev" onClick={scrollPrev}>
-        Prev
-      </Button>
-      <Button className="embla__prev" onClick={scrollNext}>
-        Next
-      </Button>
+    <div className="flex justify-center items-center  w-[50vw] h-[80vh] ">
+      <Carousel
+        className=" "
+        opts={{
+          align: "start",
+          loop: true,
+        }}
+        plugins={[
+          Autoplay({
+            delay: 2000,
+          }),
+        ]}
+      >
+        <CarouselContent>
+          {arrayImg.map((imag, index) => (
+            <CarouselItem key={index} >
+              <div >
+                <div className="flex flex-col aspect-square items-center justify-center p-6 object-fit ">
+                  <Image
+                    src={imag}
+                    alt=""
+                    className="w-[50vw] h-[60vh] rounded-xl"
+                  />
+                </div>
+              </div>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        {/* <CarouselPrevious />
+        <CarouselNext /> */}
+      </Carousel>
     </div>
   );
 }
+export default CarouselSlider;

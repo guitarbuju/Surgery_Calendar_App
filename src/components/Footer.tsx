@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import logo from '@/public/logo_positivo.png';
+import logo from '@/public/images/logo_positivo.png';
 
 const Footer = () => {
   return (

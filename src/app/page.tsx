@@ -1,11 +1,11 @@
-import Image from "next/image";
-import logo from "@/public/surgery.jpg";
+
 import RegisterForm from "@/components/RegisterForm";
+import CarouselSlider from "./carousel/page";
 
 
 export default function Home() {
   return (
-    <div className="lg:flex justify-between items-center pt-1 pb-1">
+    <div className="lg:flex justify-around items-center ">
       <div className=" flex flex-col justify-center items-center  sm:pl-10 gap-4">
         <div className="flex flex-col items-start">
           <h1 className="scroll-m-20 text-4xl text-start font-bold tracking-tight text-slate-700 ">
@@ -22,8 +22,8 @@ export default function Home() {
         <RegisterForm />
       </div>
 
-      <Image src={logo} alt="" width={1200} className="hidden lg:block" />
-     
+      {/* <Image src={logo} alt="" width={1200} className="hidden lg:block" /> */}
+     <CarouselSlider/>
     </div>
   );
 }
