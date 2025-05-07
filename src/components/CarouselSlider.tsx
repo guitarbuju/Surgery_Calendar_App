@@ -4,8 +4,6 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
 import images from "@/public/images";
 import Image from "next/image";
@@ -15,7 +13,7 @@ const arrayImg = Object.values(images);
 
 function CarouselSlider() {
   return (
-    <div className="flex justify-center items-center  w-[50vw] h-[80vh] ">
+    <div className=" justify-center items-center hidden lg:flex ">
       <Carousel
         className=" "
         opts={{
@@ -30,15 +28,15 @@ function CarouselSlider() {
       >
         <CarouselContent>
           {arrayImg.map((imag, index) => (
-            <CarouselItem key={index} >
+            <CarouselItem key={index} className="flex items-center justify-center">
               <div >
-                <div className="flex flex-col aspect-square items-center justify-center p-6 object-fit ">
+                
                   <Image
                     src={imag}
                     alt=""
-                    className="w-[50vw] h-[60vh] rounded-xl"
+                    className="w-[70vw] h-[70vh] rounded-xl"
                   />
-                </div>
+               
               </div>
             </CarouselItem>
           ))}
