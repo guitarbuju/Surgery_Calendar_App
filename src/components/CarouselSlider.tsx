@@ -34,7 +34,7 @@ function CarouselSlider() {
                   <Image
                     src={imag}
                     alt=""
-                    className="w-[70vw] h-[70vh] rounded-xl"
+                    className="w-[60vw] h-[60vh] rounded-xl"
                   />
                
               </div>

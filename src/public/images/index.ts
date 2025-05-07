@@ -1,15 +1,11 @@
-import surgery from "./surgery.jpg";
-import surgery5 from "./surgery5.jpg";
-import operation from "./operation.jpg";
-import operation2 from "./operation2.jpg";
-import operation3 from "./operation3.jpg";
+import image1 from "./images1.jpeg";
+import image2 from "./images2.jpeg";
+import image3 from "./images3.jpeg";
+import image4 from "./images4.jpeg";
+import image5 from "./images5.jpeg";
 
 
 export default {
-  surgery,
-  surgery5,
-  operation,
-  operation2,
-  operation3,
+  image1,image2,image3,image4,image5
 
 };
