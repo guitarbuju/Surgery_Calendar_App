@@ -42,7 +42,8 @@ const PassPortCard = ({
                     <CardTitle>
                       <Badge>{e.id}</Badge> Surgical Appointment
                     </CardTitle>
-                    <CardDescription className="flex justify-between text-white font-bold">
+                    <CardDescription className={`flex justify-between text-white font-bold ${
+                        isToday ? "text-white" : "text-slate-400"}`}>
                       Doctor: {e.resource.doctorName}
                     </CardDescription>
                     <CardContent
