@@ -1,13 +1,6 @@
 "use client";
-import {
-  Card,
-  CardHeader,
-  CardFooter,
-  CardTitle,
-  CardDescription,
-  CardContent,
-} from "@/components/ui/card";
-
+import { useState, useEffect } from "react";
+import { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Badge } from "./ui/badge";
 import { CalendarEvent } from "@/lib/types";
 import { DialogPop } from "./DialogPop";
@@ -20,14 +13,22 @@ const PassPortCard = ({
   events: CalendarEvent[];
   refreshEvents: () => void;
 }) => {
-  const today = dayjs(); // using dayjs for easier date comparisons
+  const [currentTime, setCurrentTime] = useState<string>("");
+
+  useEffect(() => {
+    
+    const today = dayjs().toLocaleString();
+    setCurrentTime(today);
+  }, []); 
+
+  const today = dayjs(); 
 
   return (
     <div className="flex flex-col items-center justify-center whitespace-nowrap rounded-md border">
-       <div className="flex flex-col items-start">
-          <h1 className="scroll-m-20 text-4xl text-start font-bold tracking-tight text-slate-700 ">Today&apos;s Patients</h1>
-        <p className="scroll-m-20 text-md text-start  tracking-tight text-slate-600 ">{today.toLocaleString()}</p>
-        </div>
+      <div className="flex flex-col items-start">
+        <h1 className="scroll-m-20 text-4xl text-start font-bold tracking-tight text-slate-700 ">Today&apos;s Patients</h1>
+        <p className="scroll-m-20 text-md text-start tracking-tight text-slate-600 ">{currentTime}</p>
+      </div>
       {events?.length > 0 ? (
         events.map((e) => {
           const isToday = dayjs(e.start).isSame(today, "day"); // 🔑 checks if start is today
@@ -35,9 +36,7 @@ const PassPortCard = ({
           return (
             <ol className="mb-2" key={e.id}>
               <li>
-                <Card
-                  className={`w-96 ${isToday ? "bg-[#3175ac] text-white" : ""}`}
-                >
+                <Card className={`w-96 ${isToday ? "bg-[#3175ac] text-white" : ""}`}>
                   <CardHeader>
                     <CardTitle>
                       <Badge>{e.id}</Badge> Surgical Appointment
@@ -58,11 +57,7 @@ const PassPortCard = ({
                     </CardContent>
                   </CardHeader>
                   <CardFooter className="flex justify-between gap-3 text-xs text-slate-400">
-                    <div
-                      className={`flex flex-col items-start ${
-                        isToday ? "text-white" : "text-slate-400"
-                      }`}
-                    >
+                    <div className={`flex flex-col items-start ${isToday ? "text-white" : "text-slate-400"}`}>
                       <div>
                         Start: {dayjs(e.start).format("YYYY-MM-DD HH:mm")}
                       </div>
