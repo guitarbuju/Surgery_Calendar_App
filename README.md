@@ -27,6 +27,7 @@ The application is built using **React**, **Tailwind CSS**, **React Big Calendar
 - **React Big Calendar** (for displaying events in a calendar view)
 - **PostgreSQL** (for the database)
 - **Server Actions** (for creating and updating data)
+- **Docker** (PostGreSql container)
 
 ---
 
@@ -62,7 +63,7 @@ Here’s an of the folder structure:
 Clone the repository to your local machine:
 
 ```bash
-git clone https://github.com/yourusername/surgical-appointments.git
+git clone https://github.com/guitarbuju/surgical-appointments.git
 cd surgical-appointments
 
 2. Install Dependencies
@@ -70,32 +71,25 @@ Install the necessary dependencies:
 npm install
 3. Configure the Database
 Ensure PostgreSQL is installed and running. Create a .env file in the root directory and add your PostgreSQL connection string:
+or use docker 'docker-compose up'
 
-bash
-Copiar
-Editar
+
 cp .env.example .env
 Update the .env file with your PostgreSQL connection details:
 
 env
-Copiar
-Editar
-DATABASE_URL=postgresql://username:password@localhost:5432/surgical_appointments
-4. Create Database Tables
-Run the migration script to create the necessary tables:
+example:DATABASE_URL=postgresql://username:password@localhost:5432/surgical_appointments
 
-bash
-Copiar
-Editar
-npm run migrate
+4. Create Database Tables
+Run the initDb script to create dB and the necessary tables:
+
+
+npm run initDb
 This will create tables for doctors, patients, and appointments in your PostgreSQL database.
 
 5. Start the Development Server
 Now, you can start the development server:
 
-bash
-Copiar
-Editar
 npm run dev
 The app will be accessible at http://localhost:3000.
 
